@@ -16,7 +16,7 @@ public class ItemService {
 	
 	ItemRepository repository;
 	
-	public Optional<Item> fetchAll(Long id) {
+	public Optional<Item> fetch(Long id) {
 		return repository.findById(id);
 	}
 	

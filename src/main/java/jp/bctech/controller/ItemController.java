@@ -30,12 +30,12 @@ public class ItemController {
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, value="{id}")
-	public User createUser(@Validated @RequestBody Item user) {
-		return service.save(user);
+	public Item create(@Validated @RequestBody Item item) {
+		return service.save(item);
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="{id}")
-	public void deleteUser(@PathVariable("id") Long id) {
+	public void delete(@PathVariable("id") Long id) {
 		service.delete(id);
 	}
 }

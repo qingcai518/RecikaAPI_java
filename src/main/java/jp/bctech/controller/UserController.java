@@ -20,13 +20,13 @@ public class UserController {
 	UserService service;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public List<User> getUsers() {
-		return service.findUsers();
+	public List<User> fetchAll() {
+		return service.fetchAll();
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value="{id}")
-	public Optional<User> getUser(@PathVariable("id") Long id) {
-		return service.findUser(id);
+	public Optional<User> fetch(@PathVariable("id") Long id) {
+		return service.fetch(id);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, value="{id}")

@@ -15,11 +15,11 @@ public class GiftService {
 	@Autowired
 	GiftRepository repository;
 	
-	public Optional<Gift> findGift(Long id) {
+	public Optional<Gift> fetch(Long id) {
 		return repository.findById(id);
 	}
 	
-	public List<Gift> findGifts() {
+	public List<Gift> fetchAll() {
 		return repository.findAll();
 	}
 	

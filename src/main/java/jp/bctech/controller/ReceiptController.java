@@ -23,13 +23,13 @@ public class ReceiptController {
 	ReceiptService service;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public List<Receipt> getReceipts() {
-		return service.findReceipts();
+	public List<Receipt> fetchAll() {
+		return service.fetchAll();
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value="{id}")
-	public Optional<Receipt> getReceipt(@PathVariable("id") Long id) {
-		return service.findReceipt(id);
+	public Optional<Receipt> fetch(@PathVariable("id") Long id) {
+		return service.fetch(id);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, value="{id}")

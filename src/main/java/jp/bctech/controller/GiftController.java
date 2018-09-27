@@ -23,17 +23,17 @@ public class GiftController {
 	GiftService service;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public List<Gift> getGifts() {
-		return service.findGifts();
+	public List<Gift> fetchAll() {
+		return service.fetchAll();
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value="{id}")
-	public Optional<Gift> getGift(@PathVariable("id") Long id) {
-		return service.findGift(id);
+	public Optional<Gift> fetch(@PathVariable("id") Long id) {
+		return service.fetch(id);
 	}
-	
+
 	@RequestMapping(method=RequestMethod.PUT, value="{id}")
-	public Gift createGift(@Validated @RequestBody Gift gift) {
+	public Gift create(@Validated @RequestBody Gift gift) {
 		return service.save(gift);
 	}
 	

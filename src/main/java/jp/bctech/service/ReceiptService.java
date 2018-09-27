@@ -15,11 +15,11 @@ public class ReceiptService {
 	@Autowired
 	ReceiptRepository repository;
 	
-	public Optional<Receipt> findReceipt(Long id) {
+	public Optional<Receipt> fetch(Long id) {
 		return repository.findById(id);
 	}
 	
-	public List<Receipt> findReceipts() {
+	public List<Receipt> fetchAll() {
 		return repository.findAll();
 	}
 	

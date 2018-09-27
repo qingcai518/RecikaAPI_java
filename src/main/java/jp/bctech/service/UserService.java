@@ -15,11 +15,11 @@ public class UserService {
 	@Autowired
 	UserRepository repository;
 	
-	public Optional<User> findUser(Long id) {
+	public Optional<User> fetch(Long id) {
 		return repository.findById(id);
 	}
 	
-	public List<User> findUsers() {
+	public List<User> fetchAll() {
 		return repository.findAll();
 	}
 	

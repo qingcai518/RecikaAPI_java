@@ -24,6 +24,11 @@ public class ItemController {
 		return service.fetchAll();
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, params = "receipt_id")
+	public List<Item> fetchTest(@PathVariable("receipt_id") Long receiptId) {
+		return service.fetchBy(receiptId);
+	}
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/receipt/{receipt_id}")
 	public List<Item> fetchAll(@PathVariable("receipt_id") Long receiptId) {
 		return service.fetchBy(receiptId);

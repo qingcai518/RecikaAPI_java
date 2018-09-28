@@ -1,6 +1,8 @@
 package jp.bctech.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,8 +21,9 @@ public class ReceiptService {
 		return repository.findById(id);
 	}
 	
-	public List<Receipt> fetchAll() {
-		return repository.findAll();
+	public List<Receipt> fetchAll(Pageable pageable) {
+		Page<Receipt> result = repository.findAll(pageable);
+		return result.getContent();
 	}
 	
 	public Receipt save(Receipt receipt) {

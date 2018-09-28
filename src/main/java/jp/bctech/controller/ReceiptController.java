@@ -27,8 +27,10 @@ public class ReceiptController {
 	@Autowired
 	ReceiptService service;
 	
-	@RequestMapping(method = RequestMethod.GET, params = {"page", "size"})
-	public Map<String, Object> fetchAll(@RequestParam(name = "page", defaultValue = "0") int page, @RequestParam(name = "size", defaultValue = "10") int size) {
+	@RequestMapping(method = RequestMethod.GET)
+	public Map<String, Object> fetchAll(
+			@RequestParam(name = "page", defaultValue = "0", required = false) int page, 
+			@RequestParam(name = "size", defaultValue = "10", required = false) int size) {
 		Pageable pageable = PageRequest.of(page, size);
 		List<Receipt> data = service.fetchAll(pageable);
 		Map<String, Object> result = new HashMap<String, Object>();

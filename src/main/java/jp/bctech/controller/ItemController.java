@@ -3,6 +3,7 @@ package jp.bctech.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,12 +26,7 @@ public class ItemController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, params = "receipt_id")
-	public List<Item> fetchTest(@PathVariable("receipt_id") Long receiptId) {
-		return service.fetchBy(receiptId);
-	}
-	
-	@RequestMapping(method = RequestMethod.GET, value = "/receipt/{receipt_id}")
-	public List<Item> fetchAll(@PathVariable("receipt_id") Long receiptId) {
+	public List<Item> fetchtest(@RequestParam(value="receipt_id") Long receiptId) {
 		return service.fetchBy(receiptId);
 	}
 	

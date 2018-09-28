@@ -19,19 +19,9 @@ public class ItemController {
 	@Autowired
 	ItemService service;
 	
-	@RequestMapping(method = RequestMethod.GET)
-	public List<Item> fetchAll() {
-		return service.fetchAll();
-	}
-	
-	@RequestMapping(method = RequestMethod.GET, value="{receipt_id}")
-	public Optional<Item> fetchByReceiptId(@PathVariable("receipt_id") Long id) {
-		return service.fetch(receipt_id)
-	}
-	
-	@RequestMapping(method = RequestMethod.GET, value="{id}")
-	public Optional<Item> fetch(@PathVariable("id") Long id) {
-		return service.fetch(id);
+	@RequestMapping(method = RequestMethod.GET, value = "{receipt_id}")
+	public List<Item> fetchAll(@PathVariable("receipt_id") Long receiptId) {
+		return service.fetchBy(receiptId);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, value="{id}")

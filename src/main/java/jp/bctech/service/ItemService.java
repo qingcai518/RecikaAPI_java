@@ -1,6 +1,7 @@
 package jp.bctech.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +19,14 @@ public class ItemService {
 	
 	public Optional<Item> fetch(Long id) {
 		return repository.findById(id);
+	}
+	
+	public List<Item> fetchBy(Long receiptId) {
+		Item item = new Item();
+		item.setReceiptId(receiptId);
+		
+		Example<Item> example = Example.of(item);
+		return repository.findAll(example);
 	}
 	
 	public List<Item> fetchAll() {

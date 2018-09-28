@@ -6,26 +6,26 @@ import javax.persistence.Id;
 @Entity
 public class Item {
 	@Id
-	private int id;
-	private int receiptId;
+	private Long id;
+	private Long receiptId;
 	private String name;
-	private double price;
+	private Double price;
 	private String createdAt;
 	private String updateAt;
 	
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 	
-	public void setReceiptId(int id) {
-		this.id = id;
+	public void setReceiptId(Long receiptId) {
+		this.receiptId = receiptId;
 	}
 	
-	public int getReceiptId() {
+	public Long getReceiptId() {
 		return receiptId;
 	}
 	
@@ -37,11 +37,11 @@ public class Item {
 		return name;
 	}
 	
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 	

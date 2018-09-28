@@ -21,12 +21,7 @@ public class ItemController {
 	ItemService service;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public List<Item> fetchAll() {
-		return service.fetchAll();
-	}
-	
-	@RequestMapping(method = RequestMethod.GET)
-	public List<Item> fetchtest(@RequestParam(value="receipt_id") Long receiptId) {
+	public List<Item> fetchAll(@RequestParam(value="receipt_id") Long receiptId) {
 		return service.fetchBy(receiptId);
 	}
 	

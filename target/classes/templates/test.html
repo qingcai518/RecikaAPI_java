@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>top page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	test
+	<p th:text="${msg}" />
+	<form th:action="@{/test/download}" method="post">
+		<input class="btn btn-danger" type="submit" value="出力" />
+	</form>
+</body>
+</html>

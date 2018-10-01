@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import jp.bctech.common.ExcelUtility;
 
 @Controller
-@RequestMapping("/test")
+@RequestMapping("/v1/test")
 public class TestController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String test(Model model) {

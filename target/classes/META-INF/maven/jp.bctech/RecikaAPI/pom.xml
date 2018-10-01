@@ -63,10 +63,27 @@
 			<artifactId>poi</artifactId>
 			<version>3.13</version>
 		</dependency>
+		<!-- for excel output. -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
 			<version>3.13</version>
+		</dependency>
+		<!-- for calendar. -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>2.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>moment</artifactId>
+			<version>2.19.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>fullcalendar</artifactId>
+			<version>3.5.1</version>
 		</dependency>
 	</dependencies>
 

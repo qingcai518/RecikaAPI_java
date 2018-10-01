@@ -8,7 +8,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import java.io.*;
 
 public class ExcelUtility {
-	public void create() {
+	public static void create() {
 		Workbook workbook = new HSSFWorkbook();
 		Sheet sheet = workbook.createSheet("test");
 		
@@ -33,5 +33,28 @@ public class ExcelUtility {
 				System.out.println(e.toString());
 			}
 		}
+	}
+	
+	public static void createExcel() {
+		Workbook workbook = new HSSFWorkbook();
+		Sheet sheet = workbook.createSheet("content");
+		
+		Row row1 = sheet.createRow(1);
+		Row row4 = sheet.createRow(4);
+		
+		FileOutputStream output = null;
+		try {
+			output = new FileOutputStream("content.xls");
+			workbook.write(output);
+		} catch (IOException e) {
+			System.out.println(e.toString());
+		} finally {
+			try {
+				output.close();
+			} catch (IOException e) {
+				System.out.println(e.toString());
+			}
+		}
+				
 	}
 }

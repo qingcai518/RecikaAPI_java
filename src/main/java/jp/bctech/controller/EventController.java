@@ -14,27 +14,28 @@ import jp.bctech.entity.Event;
 @RequestMapping("/api/event")
 public class EventController {
 	@GetMapping(value = "/all")
-	public String getEvents() {
+	public String setEvents() {
 		String jsonMsg = null;
 		try {
 			List<Event> events = new ArrayList<Event>();
-			Event event = new Event();
-			event.setTitle("first event");
-			event.setStart("2017-10-01");
-			events.add(event);
 			
-			Event event2 = new Event();
-			event2.setTitle("second event");
-			event2.setStart("2017-10-11");
-			event2.setEnd("2017-10-12");
-			events.add(event2);
+			Event e1 = new Event();
+			e1.setTitle("first event");
+			e1.setStart("2018-10-01");
+			events.add(e1);
+			
+			Event e2 = new Event();
+			e2.setTitle("second event");
+			e2.setStart("2018-10-11");
+			e2.setEnd("2018-10-12");
+			events.add(e2);
 			
 			ObjectMapper mapper = new ObjectMapper();
 			jsonMsg = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(events);
-		} catch (IOException e) {
+			
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
 		return jsonMsg;
 	}
 }

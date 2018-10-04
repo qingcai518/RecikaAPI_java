@@ -40,12 +40,4 @@ public class UserController {
 	public void deleteUser(@PathVariable("id") Long id) {
 		service.delete(id);
 	}
-	
-	@PostMapping("/signup")
-	public void signup(@RequestBody User user) {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		String password = encoder.encode(user.getPassword());
-		user.setPassword(password);
-		service.save(user);
-	}
 }

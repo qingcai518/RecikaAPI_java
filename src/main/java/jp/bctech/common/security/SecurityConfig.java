@@ -24,22 +24,16 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		// no login settings
+		http.authorizeRequests()
+		.antMatchers("/", "/v1/login", "/v1/register").permitAll()
+		.anyRequest().authenticated();
+		
+		// login settings.
 		http.formLogin()
-		.loginProcessingUrl("/login")
-		.permitAll()
-		.usernameParameter("name")
-		.passwordParameter("password")
-		.successHandler(authenticationSuccessHandler())
-		.failureHandler(authenticationFailureHandler())
-		.and()
-		.logout()
-		.logoutUrl("/logout")
-		.invalidateHttpSession(true)
-		.deleteCookies("JSESSIONID")
-		.logoutSuccessHandler(logoutSuccessHandler())
-		.and()
-		.csrf()
-		.csrfTokenRepository(new CookieCsrfTokenRepository());
+		.loginProcessingUrl("/v1/login")
+		.failureHandler(new SimpleAuthenticationFailureHandler())
+		.defaultSuccessUrl(defaultSuccessUrl)
 	}
 	
 	@Bean

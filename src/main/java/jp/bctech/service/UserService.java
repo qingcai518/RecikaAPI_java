@@ -39,10 +39,6 @@ public class UserService {
 	public List<User> findAllUsers(List<Long> ids) {
 		return repository.findAllById(ids);
 	}
-	
-	public Optional<User> fetchByName(String name) {
-		return repository.fetchByName(name);
-	}
 
 //	@Override
 //	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

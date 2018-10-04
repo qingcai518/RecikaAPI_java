@@ -1,9 +1,11 @@
 package jp.bctech.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,5 +39,13 @@ public class UserController {
 	@RequestMapping(method=RequestMethod.DELETE, value="{id}")
 	public void deleteUser(@PathVariable("id") Long id) {
 		service.delete(id);
+	}
+	
+	@PostMapping("/signup")
+	public void signup(@RequestBody User user) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String password = encoder.encode(user.getPassword());
+		user.setPassword(password);
+		service.save(user);
 	}
 }

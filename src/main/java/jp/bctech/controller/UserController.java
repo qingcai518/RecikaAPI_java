@@ -38,9 +38,4 @@ public class UserController {
 	public void deleteUser(@PathVariable("id") Long id) {
 		service.delete(id);
 	}
-	
-	@RequestMapping(method=RequestMethod.GET, value = "/login")
-	public Optional<User> fetchByName(String name) {
-		return service.fetchByName(name);
-	}
 }

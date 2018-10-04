@@ -16,7 +16,7 @@ import java.util.*;
 
 @Service
 @Transactional
-public class UserService implements UserDetailsService {
+public class UserService {
 	@Autowired
 	UserRepository repository;
 	
@@ -44,8 +44,8 @@ public class UserService implements UserDetailsService {
 		return repository.fetchByName(name);
 	}
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return repository.fetchByName(username).map(LoginUser::new).orElseThrow(() -> new UsernameNotFoundException("user not found"));
-	}
+//	@Override
+//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//		return repository.fetchByName(username).map(LoginUser::new).orElseThrow(() -> new UsernameNotFoundException("user not found"));
+//	}
 }
